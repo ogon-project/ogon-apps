@@ -1,0 +1,14 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=@CMAKE_INSTALL_PREFIX@
+libdir=@CMAKE_INSTALL_FULL_LIBDIR@
+includedir=@CMAKE_INSTALL_PREFIX@/@OGON_MESSAGE_INCLUDE_DIR@
+libs=-logon-message
+
+Name: ogon message
+Description: ogon common message library
+URL: http://ogon-project.com/
+Version: @OGON_APPS_MESSAGE_VERSION_FULL@
+Requires: 
+Requires.private: winpr2 ogon@OGON_DEPENDENCY_VERSION@
+Libs: -L${libdir} ${libs}
+Cflags: -I${includedir}

@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 2.8)
+
+project(ogon-apps CXX)
+set(CMAKE_COLOR_MAKEFILE ON)
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include/")
+include(FindPkgConfig)
+include(FindDependency)
+include(GNUInstallDirsWrapper)
+
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE)
+set(CMAKE_INSTALL_RPATH "\$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
+
+if(CMAKE_EXTRA_RPATH)
+	set(CMAKE_SKIP_RPATH FALSE)
+	set(CMAKE_SKIP_INSTALL_RPATH FALSE)
+	set(CMAKE_INSTALL_RPATH "${CMAKE_EXTRA_RPATH}")
+endif()
+
+if(NOT CMAKE_BUILD_TYPE)
+	set(CMAKE_BUILD_TYPE "Release")
+endif()
+
+set(WINPR_DEPENDENCY_TYPE "REQUIRED")
+set(WINPR_DEPENDENCY_PURPOSE "WINPR libraries and headers")
+set(WINPR_DEPENDENCY_DESCRIPTION "WINPR")
+set(WINPR_DEPENDENCY_VERSION "2")
+find_dependency(WinPR ${WINPR_DEPENDENCY_TYPE} ${WINPR_DEPENDENCY_PURPOSE} ${WINPR_DEPENDENCY_DESCRIPTION} ${WINPR_DEPENDENCY_VERSION})
+
+add_subdirectory(shadow)
+add_subdirectory(libs)
+add_subdirectory(ogon-message)

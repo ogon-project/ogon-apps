@@ -1,0 +1,3 @@
+usr/bin/ogon-*
+usr/lib/*/libogon-message.so*
+usr/share/qt5/translations/ogon-message_*.qm

@@ -1,0 +1,53 @@
+Source: ogon-apps
+Maintainer: ogon packaging team <ogon+package@thincast.com>
+Section: net
+Priority: optional
+Standards-Version: 3.9.7
+Homepage: http://ogon-project.com/
+Vcs-Browser: https://github.com/ogon/ogon
+Vcs-Git: https://github.com/ogon/ogon
+Build-Depends:
+ debhelper (>=9),
+ dpkg-dev (>= 1.16.1.1),
+ cmake,
+ ninja-build,
+ qtbase5-dev,
+ qt5-default,
+ qttools5-dev,
+ qttools5-dev-tools,
+ ogon-dev
+
+Package: ogon-apps
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: ogon-apps - utilities used by content providers
+ .
+ This package contains utilities that are used by
+ content providers.
+
+Package: ogon-apps-dbg
+Architecture: any
+Priority: extra
+Section: debug
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+ ${misc:Depends},
+ ogon-apps (= ${binary:Version})
+Description: ogon-apps - utilities used by content providers
+ .
+ This package contains the debuffing symbols for ogon-apps
+
+Package: ogon-apps-dev
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+ ${misc:Depends},
+ ogon-apps (= ${binary:Version}),
+ ogon-dev,
+ freerdp2-dev,
+ libwinpr2-dev
+Description: ogon-apps - utilities used by content providers
+ .
+ This package contains all development related files.

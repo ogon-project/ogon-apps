@@ -9,7 +9,7 @@ Version:         1.0.0
 Release:         1
 Summary:         Application and utilities for ogon
 Group:           Productivity/Networking/RDP
-License:         Apache-2.0
+License:         AGPL
 Url:             http://ogon-project.com
 Source:          ogon-apps.tar.xz
 BuildRequires:   pkg-config
